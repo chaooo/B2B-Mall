@@ -1,6 +1,6 @@
 package com.example.mall.service;
 
-import com.example.mall.entity.PmsBrand;
+import com.example.mall.entity.model.PmsBrand;
 
 import java.util.List;
 

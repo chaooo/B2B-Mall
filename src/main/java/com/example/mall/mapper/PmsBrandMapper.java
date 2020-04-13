@@ -1,7 +1,7 @@
 package com.example.mall.mapper;
 
-import com.example.mall.entity.PmsBrand;
-import com.example.mall.entity.PmsBrandExample;
+import com.example.mall.entity.model.PmsBrand;
+import com.example.mall.entity.model.PmsBrandExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

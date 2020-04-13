@@ -1,7 +1,7 @@
 package com.example.mall.service.impl;
 
-import com.example.mall.entity.PmsBrand;
-import com.example.mall.entity.PmsBrandExample;
+import com.example.mall.entity.model.PmsBrand;
+import com.example.mall.entity.model.PmsBrandExample;
 import com.example.mall.mapper.PmsBrandMapper;
 import com.example.mall.service.PmsBrandService;
 import com.github.pagehelper.PageHelper;

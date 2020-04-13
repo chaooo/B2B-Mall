@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.mall.mapper.PmsBrandMapper">
-  <resultMap id="BaseResultMap" type="com.example.mall.entity.PmsBrand">
+  <resultMap id="BaseResultMap" type="com.example.mall.entity.model.PmsBrand">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="first_letter" jdbcType="VARCHAR" property="first_letter" />
@@ -73,10 +73,10 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, `name`, first_letter, sort, factory_status, show_status, product_count, product_comment_count, 
+    id, `name`, first_letter, sort, factory_status, show_status, product_count, product_comment_count,
     logo, big_pic, brand_story
   </sql>
-  <select id="selectByExample" parameterType="com.example.mall.entity.PmsBrandExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.example.mall.entity.model.PmsBrandExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -91,7 +91,7 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from pms_brand
     where id = #{id,jdbcType=BIGINT}
@@ -100,23 +100,23 @@
     delete from pms_brand
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.example.mall.entity.PmsBrandExample">
+  <delete id="deleteByExample" parameterType="com.example.mall.entity.model.PmsBrandExample">
     delete from pms_brand
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.example.mall.entity.PmsBrand" useGeneratedKeys="true">
-    insert into pms_brand (`name`, first_letter, sort, 
-      factory_status, show_status, product_count, 
-      product_comment_count, logo, big_pic, 
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.example.mall.entity.model.PmsBrand" useGeneratedKeys="true">
+    insert into pms_brand (`name`, first_letter, sort,
+      factory_status, show_status, product_count,
+      product_comment_count, logo, big_pic,
       brand_story)
-    values (#{name,jdbcType=VARCHAR}, #{first_letter,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, 
-      #{factory_status,jdbcType=INTEGER}, #{show_status,jdbcType=INTEGER}, #{product_count,jdbcType=INTEGER}, 
-      #{product_comment_count,jdbcType=INTEGER}, #{logo,jdbcType=VARCHAR}, #{big_pic,jdbcType=VARCHAR}, 
+    values (#{name,jdbcType=VARCHAR}, #{first_letter,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER},
+      #{factory_status,jdbcType=INTEGER}, #{show_status,jdbcType=INTEGER}, #{product_count,jdbcType=INTEGER},
+      #{product_comment_count,jdbcType=INTEGER}, #{logo,jdbcType=VARCHAR}, #{big_pic,jdbcType=VARCHAR},
       #{brand_story,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.example.mall.entity.PmsBrand" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.example.mall.entity.model.PmsBrand" useGeneratedKeys="true">
     insert into pms_brand
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="name != null">
@@ -183,7 +183,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.example.mall.entity.PmsBrandExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.example.mall.entity.model.PmsBrandExample" resultType="java.lang.Long">
     select count(*) from pms_brand
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -247,7 +247,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.mall.entity.PmsBrand">
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.mall.entity.model.PmsBrand">
     update pms_brand
     <set>
       <if test="name != null">
@@ -283,7 +283,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.mall.entity.PmsBrand">
+  <update id="updateByPrimaryKey" parameterType="com.example.mall.entity.model.PmsBrand">
     update pms_brand
     set `name` = #{name,jdbcType=VARCHAR},
       first_letter = #{first_letter,jdbcType=VARCHAR},
