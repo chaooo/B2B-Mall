@@ -1,9 +1,11 @@
 server:
-  port: 8080
+  port: 8083
 
 spring:
+  # -------------------------------- 数据源 database
   datasource:
-    url: jdbc:mysql://localhost:3306/b2b_mall?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/security_demo1?serverTimezone=UTC&allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8
     username: root
     password: 123qwe
   redis:
@@ -20,11 +22,15 @@ spring:
     timeout: 3000ms # 连接超时时间（毫秒）
 
 
-# mybatis
+# -------------------------------- mybatis
 mybatis:
+  configuration:
+    # 设置驼峰命名规则自动转换
+    map-underscore-to-camel-case: true
+  # 指定映射文件所在路径
   mapper-locations:
-    - classpath:mapper/*.xml
-    - classpath*:com/**/mapper/*.xml
+    - classpath: mapper/*.xml
+    - classpath*: com/**/mapper/*.xml
 
 
 # 自定义redis key

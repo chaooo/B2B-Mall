@@ -3,11 +3,14 @@ package com.example.mall;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * @author : Charles
+ */
 @SpringBootApplication
-public class B2bMallApplication {
+public class MallApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(B2bMallApplication.class, args);
+        SpringApplication.run(MallApplication.class, args);
     }
 
 }
